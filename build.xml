@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="AntDemo" default="run" basedir=".">
 
-    <property name="src.dir" location="src"/>
+    <property name="src.dir" location="."/>
     <property name="build.dir" location="build"/>
     <property name="classes.dir" location="${build.dir}"/>
     <property name="main-class" value="HelloWorld"/> <target name="clean" description="Deletes the build directory">
