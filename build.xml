@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AntDemo" default="run" basedir=".">
+
+    <property name="src.dir" location="src"/>
+    <property name="build.dir" location="build"/>
+    <property name="classes.dir" location="${build.dir}"/>
+    <property name="main-class" value="HelloWorld"/> <target name="clean" description="Deletes the build directory">
+    <delete dir="${build.dir}"/>
+</target>
+
+    <target name="init" depends="clean" description="Creates the build directory">
+        <mkdir dir="${classes.dir}"/>
+    </target>
+
+    <target name="compile" depends="init" description="Compiles source code">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"/>
+    </target>
+
+    <target name="run" depends="compile" description="Runs the application">
+        <java classname="${main-class}" fork="true">
+            <classpath>
+                <pathelement location="${classes.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="all" depends="run" description="Builds and runs the project"/>
+
+</project>
